@@ -1,0 +1,2280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Neuron</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+
+        }
+
+        .Section1 {
+            height: 120vh;
+            width: 100%;
+            /* border: 1px solid; */
+            background-image: url(./images/images05.jpg);
+            background-position: center;
+            background-size: cover;
+        }
+
+        .Infobar {
+            height: 55px;
+            width: 1400px;
+            border-bottom: 1px solid rgb(5, 162, 210);
+            /* border: 1px solid red; */
+            margin-left: 60px;
+        }
+
+        .toolbar {
+            height: 50px;
+            width: 1400px;
+            /* border: 1px solid red; */
+            margin-left: 60px;
+            margin-top: -35px;
+        }
+
+        .em {
+            color: white;
+            font-size: 16px;
+            margin-top: 30px;
+            display: inline;
+            vertical-align: top;
+        }
+
+        .h1 {
+            color: white;
+            /* font-size: 22px; */
+            /* margin-top: 10px; */
+            display: inline;
+            vertical-align: top;
+            font-weight: normal;
+        }
+
+        .ph {
+            color: white;
+            font-size: 16px;
+            margin-top: 30px;
+            display: inline;
+            vertical-align: top;
+            margin-left: 20px;
+        }
+
+        .fb {
+            color: white;
+            font-size: 14px;
+            margin-top: 30px;
+            display: inline;
+            vertical-align: top;
+            margin-left: 950px;
+        }
+
+        .g {
+            color: white;
+            font-size: 16px;
+            margin-top: 30px;
+            display: inline;
+            vertical-align: top;
+            margin-left: 10px;
+        }
+
+        .Navbar {
+            height: 70px;
+            width: 1400px;
+            /* border: 1px solid red; */
+            margin-left: 60px;
+            /* position: fixed; */
+            /* top: 0; */
+            /* z-index: 1; */
+        }
+
+        .logo {
+            height: 30px;
+            width: 150px;
+            /* border: 1px solid red; */
+            background-image: url(./images/images02.png);
+            background-position: center;
+            background-size: cover;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .Navlist {
+            /* display: inline-block;
+            vertical-align: top; */
+            margin-left: 720px;
+            margin-top: -20px;
+            list-style: none;
+            cursor: pointer;
+        }
+
+        .n1 {
+            display: inline;
+            vertical-align: top;
+            margin: 10px;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .n1:hover {
+            color: gray;
+        }
+
+        .n1 a {
+            text-decoration: none;
+            color: white;
+            position: relative;
+        }
+
+        .n1 a:hover {
+            color: gray;
+        }
+
+        .dropdown {
+            height: 0;
+            width: 250px;
+            position: absolute;
+            /* border: 1px solid red; */
+            background-color: white;
+            transition: .34s;
+            margin-top: 20px;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .n1:hover .dropdown {
+            height: 130px;
+            margin-top: 20px;
+        }
+
+        .dd {
+            font-size: 14px;
+            margin-top: 20px;
+            line-height: 16px;
+            margin-left: 30px;
+            color: rgb(90, 89, 89);
+        }
+
+        .dd:hover {
+            color: rgb(6, 162, 249);
+        }
+
+        .dropdown1 {
+            height: 0;
+            width: 550px;
+            position: absolute;
+            /* border: 1px solid red; */
+            background-color: white;
+            transition: .34s;
+            overflow: hidden;
+            margin-left: 20px;
+            margin-top: 20px;
+            z-index: 1;
+        }
+
+        .n1:hover .dropdown1 {
+            height: 180px;
+            margin-top: 20px;
+        }
+
+        .b1 {
+            height: 150px;
+            width: max-content;
+            /* border: 1px solid red; */
+            display: inline-block;
+            vertical-align: top;
+            margin: 10px;
+        }
+
+        .dropdown2 {
+            height: 0;
+            width: 270px;
+            position: absolute;
+            /* border: 1px solid red; */
+            background-color: white;
+            transition: .35s;
+            overflow: hidden;
+            margin-left: 330px;
+            z-index: 1;
+            margin-top: 20px;
+        }
+
+        .n1:hover .dropdown2 {
+            height: 170px;
+            margin-top: 20px;
+        }
+
+        .dropdown3 {
+            height: 0;
+            width: 270px;
+            position: absolute;
+            /* border: 1px solid red; */
+            background-color: white;
+            transition: .35s;
+            overflow: hidden;
+            margin-left: 400px;
+            z-index: 1;
+            margin-top: 20px;
+        }
+
+        .n1:hover .dropdown3 {
+            height: 170px;
+            margin-top: 20px;
+        }
+
+        .sh {
+            color: white;
+            font-size: 16px;
+            margin-top: 30px;
+            display: inline;
+            vertical-align: top;
+            margin-left: 26px;
+        }
+
+        .text1 {
+            height: 500px;
+            width: 600px;
+            /* border: 1px solid red; */
+            margin-left: 60px;
+            margin-top: 60px;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .hdng {
+            font-size: 60px;
+            color: white;
+            margin-top: 50px;
+        }
+
+        .p1 {
+            color: white;
+            margin-top: 20px;
+            font-size: 23px;
+        }
+
+        .btn1 {
+            height: 50px;
+            width: 160px;
+            border: 1px solid white;
+            color: rgb(6, 162, 249);
+            background-color: white;
+            font-weight: bold;
+            border-radius: 25px;
+            margin-top: 30px;
+            cursor: pointer;
+        }
+
+        .btn1:hover {
+            border: 1px solid white;
+            color: white;
+            background-color: transparent;
+        }
+
+        .btn2 {
+            height: 50px;
+            width: 160px;
+            border: 1px solid white;
+            color: white;
+            background-color: transparent;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .btn2:hover {
+            border: none;
+            color: rgb(6, 162, 249);
+            background-color: white;
+        }
+
+        .img1 {
+            height: 600px;
+            width: 750px;
+            /* border: 1px solid red; */
+            margin-left: 60px;
+            margin-top: 60px;
+            display: inline-block;
+            vertical-align: top;
+            position: relative;
+        }
+
+        .plimg {
+            height: 600px;
+            width: 250px;
+            /* border: 1px solid red; */
+            position: absolute;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .limg {
+            animation-name: slidedown;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+        @keyframes slidedown {
+            0% {
+                margin-top: 0px;
+            }
+
+            100% {
+                margin-top: 50px;
+            }
+        }
+
+        .primg {
+            position: absolute;
+            height: 600px;
+            width: 300px;
+            margin-left: 320px;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .rimg {
+            /* margin-left: 80px; */
+            margin-top: 130px;
+        }
+
+        .Section2 {
+            height: 100vh;
+            width: 100%;
+            /* border: 1px solid; */
+            background-color: rgb(255, 255, 255);
+        }
+
+        .tdiv1 {
+            height: 600px;
+            width: 350px;
+            /* border: 1px solid red; */
+            margin-left: 60px;
+            margin-top: 30px;
+            /* display: inline-block; */
+        }
+
+        .ablock1 {
+            height: 230px;
+            width: 350px;
+            border: 1px solid white;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: -3px 7px 32px -9px rgba(0, 0, 0, 0.66);
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .ablock1:hover {
+            background: linear-gradient(to right bottom, rgb(2, 163, 239), rgb(8, 195, 134));
+            border: none;
+        }
+
+        .ablock1:hover .b {
+            background: linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .ablock1:hover .h2 {
+            color: white;
+        }
+
+        .ablock1:hover .p2 {
+            color: white;
+        }
+
+        .b {
+            margin-top: 20px;
+            font-size: 72px;
+            background: linear-gradient(rgb(2, 163, 239), rgb(8, 195, 134));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            cursor: pointer;
+        }
+
+        .h2 {
+            margin-top: 20px;
+        }
+
+        .p2 {
+            margin-top: 20px;
+            color: rgb(120, 120, 120);
+            font-size: 17px;
+        }
+
+        .SliderMain {
+            height: 550px;
+            width: 94%;
+            overflow: hidden;
+            margin: auto;
+        }
+
+        .ablock2 {
+            height: 230px;
+            width: 350px;
+            border: 1px solid white;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: -3px 7px 32px -9px rgba(0, 0, 0, 0.66);
+            text-align: center;
+            margin-top: 70px;
+            cursor: pointer;
+        }
+
+        .ablock2:hover {
+            background: linear-gradient(to right bottom, rgb(2, 163, 239), rgb(8, 195, 134));
+            border: none;
+        }
+
+        .ablock2:hover .b {
+            background: linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .ablock2:hover .h2 {
+            color: white;
+        }
+
+        .ablock2:hover .p2 {
+            color: white;
+        }
+
+        .tdiv2 {
+            height: 600px;
+            width: 350px;
+            /* border: 1px solid red; */
+            margin-left: 450px;
+            margin-top: -480px;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .text2 {
+            height: 500px;
+            width: 600px;
+            /* border: 1px solid red; */
+            display: inline-block;
+            vertical-align: top;
+            margin-top: -480px;
+            margin-left: 50px;
+        }
+
+        .bbottom {
+            height: 10px;
+            width: 150px;
+            /* border: 1px solid; */
+            background: linear-gradient(to right, rgb(2, 163, 239), rgb(8, 195, 134));
+            margin-top: -76px;
+            position: absolute;
+            margin-left: 3px;
+            z-index: -1;
+            border: none;
+        }
+
+        .hdng2 {
+            font-size: 43px;
+            /* color: white; */
+            /* border: 1px solid red; */
+            height: 100px;
+            width: max-content;
+            position: relative;
+            line-height: 56px;
+            z-index: 1;
+        }
+
+        .para2 {
+            margin-top: 40px;
+            color: rgb(120, 120, 120);
+            font-size: 17px;
+            line-height: 25px;
+        }
+
+        .btn3 {
+            height: 50px;
+            width: 160px;
+            border: none;
+            color: white;
+            background-color: transparent;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-left: 10px;
+            margin-top: 50px;
+            background: linear-gradient(to right bottom, rgb(2, 163, 239), rgb(8, 195, 134));
+        }
+
+        .btn3:hover {
+            background: linear-gradient(to left bottom, rgb(2, 163, 239), rgb(8, 195, 134));
+
+        }
+
+        .Section3 {
+            height: 90vh;
+            width: 100%;
+            /* border: 1px solid; */
+        }
+
+        .text3 {
+            height: max-content;
+            width: max-content;
+            /* border: 1px solid red; */
+            display: inline-block;
+            vertical-align: top;
+            margin-left: 70px;
+            margin-top: 90px;
+        }
+
+        .bbottom {
+            height: 10px;
+            width: 150px;
+            /* border: 1px solid; */
+            background: linear-gradient(to right, rgb(2, 163, 239), rgb(8, 195, 134));
+            margin-top: -76px;
+            position: absolute;
+            margin-left: 3px;
+            z-index: -1;
+            border: none;
+        }
+
+        .hdng2 {
+            font-size: 43px;
+            /* color: white; */
+            /* border: 1px solid red; */
+            height: 100px;
+            width: max-content;
+            position: relative;
+            line-height: 56px;
+            z-index: 1;
+        }
+
+        .para2 {
+            margin-top: 40px;
+            color: rgb(120, 120, 120);
+            font-size: 17px;
+            line-height: 28px;
+        }
+
+        .btn3 {
+            height: 50px;
+            width: 160px;
+            border: none;
+            color: white;
+            background-color: transparent;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-left: 10px;
+            margin-top: 50px;
+            background: linear-gradient(to right bottom, rgb(2, 163, 239), rgb(8, 195, 134));
+            display: inline-block;
+        }
+
+        .btn3:hover {
+            background: linear-gradient(to left bottom, rgb(2, 163, 239), rgb(8, 195, 134));
+        }
+
+        .playicon {
+            height: 70px;
+            width: 70px;
+            display: inline-block;
+            vertical-align: middle;
+            margin-top: 10px;
+            margin-left: 30px;
+            border-radius: 50%;
+            /* border: 1px solid red; */
+            position: relative;
+           
+        }
+        .plh{
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+            position: absolute;
+            margin:  5px 5px;
+            /* border: 1px solid; */
+        }
+
+        .pl{
+            background: linear-gradient(rgb(2, 163, 239), rgb(8, 195, 134));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            cursor: pointer;
+            font-size: 50px;
+            margin:  10px 10px;
+            position: absolute;
+        }
+        .playicon:hover .plh{
+            animation: goal 1s linear infinite;
+            background: linear-gradient(rgba(2, 164, 239, 0.799), rgba(8, 195, 133, 0.799));
+        }
+        @keyframes goal{
+            from{
+                transform: scale(.9);
+                opacity: 1;
+            }
+            to{
+                transform: scale(1.6);
+                opacity: 0;
+            }
+        }
+        .divimg3 {
+            height: 580px;
+            width: 700px;
+            /* border: 1px solid red; */
+            display: inline-block;
+            vertical-align: top;
+            margin-left: 50px;
+            background-image: url(./images/images08.png);
+            background-position: center;
+            background-size: cover;
+        }
+
+        .Section4 {
+            height: 40vh;
+            width: 100%;
+            /* border: 1px solid; */
+            background: linear-gradient(to bottom, rgb(8, 195, 134), rgb(2, 163, 239));
+            padding: 20px;
+        }
+
+        .obdiv {
+            height: 200px;
+            width: 1300px;
+            /* border: 1px solid red; */
+            margin-top: 50px;
+            margin-left: 100px;
+        }
+
+        .oblock1 {
+            height: 180px;
+            width: 260px;
+            /* border: 1px solid red; */
+            display: inline-block;
+            vertical-align: top;
+            color: white;
+            text-align: center;
+
+        }
+
+        .d {
+            margin-left: 70px;
+        }
+
+        .digits {
+            margin-top: 40px;
+            font-size: 40px;
+        }
+
+        .h4 {
+            margin-top: 10px;
+        }
+
+        .Section5 {
+            height: 130vh;
+            width: 100%;
+            background-color: rgb(239, 241, 247);
+            padding: 1px;
+            /* border: 1px solid; */
+            /* text-align: center; */
+        }
+
+        .h5 {
+            font-size: 43px;
+            /* color: white; */
+            /* border: 1px solid red; */
+            height: 100px;
+            width: max-content;
+            position: relative;
+            line-height: 56px;
+            z-index: 1;
+            margin-left: 550px;
+            margin-top: 40px;
+        }
+
+        .bbottom5 {
+            height: 10px;
+            width: 150px;
+            /* border: 1px solid; */
+            background: linear-gradient(to right, rgb(2, 163, 239), rgb(8, 195, 134));
+            margin-top: -20px;
+            position: absolute;
+            margin-left: 100px;
+            z-index: -1;
+            border: none;
+        }
+
+        .servicesd {
+            height: 760px;
+            width: 1400px;
+            margin-left: 80px;
+            margin-top: -20px;
+        }
+
+        .sb1 {
+            height: 330px;
+            width: 400px;
+            display: inline-block;
+            vertical-align: top;
+            border-radius: 10px;
+            box-shadow: -3px 7px 32px -9px rgba(0, 0, 0, 0.66);
+            margin: 30px;
+            text-align: center;
+        }
+        .sb1:hover{
+            background: linear-gradient(rgb(2, 163, 239), rgb(8, 195, 134));
+            color: white;
+        }
+        .sb1:hover .si{
+            background: linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .sb1:hover .hdng5{
+            color: white;
+        }
+        .sb1:hover .p5{
+            color: white;
+        }
+
+
+        .si {
+            margin-top: 30px;
+            font-size: 72px;
+            background: linear-gradient(rgb(2, 163, 239), rgb(8, 195, 134));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            cursor: pointer;
+        }
+
+        .hdng5 {
+            margin-top: 20px;
+            font-size: 24px;
+        }
+
+        .p5 {
+            margin-top: 26px;
+            color: rgb(120, 120, 120);
+            font-size: 17px;
+            line-height: 28px;
+        }
+
+        .Section6 {
+            height: 130vh;
+            width: 100%;
+            padding: 1px;
+            /* border: 1px solid; */
+        }
+
+        .h6 {
+            font-size: 46px;
+            /* color: white; */
+            /* border: 1px solid red; */
+            height: 100px;
+            width: max-content;
+            position: relative;
+            line-height: 56px;
+            z-index: 1;
+            margin-left: 550px;
+            margin-top: 40px;
+        }
+
+        .bbottom6 {
+            height: 10px;
+            width: 150px;
+            /* border: 1px solid; */
+            background: linear-gradient(to right, rgb(2, 163, 239), rgb(8, 195, 134));
+            margin-top: -20px;
+            position: absolute;
+            margin-left: 120px;
+            z-index: -1;
+            border: none;
+        }
+
+        .divimg6 {
+            height: max-content;
+            width: 2850px;
+            margin-left: 60px;
+            animation: slider 8s ease-in-out infinite;
+        }
+
+        .imgs6 {
+            height: 510px;
+            width: 450px;
+            border-radius: 10px;
+            /* box-shadow: -3px 5px 32px -5px rgba(0, 0, 0, 0.66); */
+            display: inline-block;
+            vertical-align: top;
+            margin: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes slider {
+            0% {
+                margin-left: 5px;
+            }
+
+            16% {
+                margin-left: 5px;
+            }
+
+            33% {
+                margin-left: -465px;
+            }
+
+            49% {
+                margin-left: -465px;
+            }
+
+            65% {
+                margin-left: -935px;
+            }
+
+            81% {
+                margin-left: -935px;
+            }
+
+            97% {
+                margin-left: -1410px;
+
+            }
+
+            100% {
+                margin-left: -1410px;
+            }
+
+        }
+        .overlay{
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(to right bottom, rgba(2, 164, 239, 0.825), rgba(8, 195, 133, 0.797));
+            top: 100%;
+            transition: .2s;
+        }
+        .imgs6:hover .overlay{
+            top: 0;
+        }
+        .vc{
+            color: white;
+            font-size: 25px;
+            margin-top: 100%;
+            margin-left: 30px;
+            animation: fadeup linear 10s normal;
+        }
+        @keyframes fadeup{
+            from{
+                top: 0;
+            }
+            to{
+                top: 100px;
+            }
+        }
+
+        .i1 {
+            background-image: url(./images/images10.jpg);
+            background-position: center;
+            background-size: cover;
+            
+        }
+
+        .i2 {
+            background-image: url(./images/images11.jpg);
+            background-position: center;
+            background-size: cover;
+        }
+
+        .i3 {
+            background-image: url(./images/images12.jpg);
+            background-position: center;
+            background-size: cover;
+        }
+
+        .whitediv {
+            height: 400px;
+            width: 1250px;
+            /* border: 1px solid red; */
+            background-color: white;
+            margin-left: 120px;
+            z-index: 1;
+            margin-top: -200px;
+            border-radius: 12px;
+            box-shadow: 0px 1px 7px 1px rgba(0, 0, 0, 0.22);
+        }
+
+        .enicon {
+            font-size: 270px;
+            background: linear-gradient(rgba(2, 164, 239, 0.375), rgba(8, 195, 133, 0.419));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-top: 50px;
+            margin-left: 50px;
+            display: inline-block;
+            /* vertical-align: top; */
+            /* border: 1px solid red; */
+        }
+
+        .h7 {
+            font-size: 46px;
+            /* color: white; */
+            /* border: 1px solid red; */
+            height: 120px;
+            width: 500px;
+            position: relative;
+            line-height: 56px;
+            font-weight: normal;
+            z-index: 1;
+            margin-left: 400px;
+            margin-top: -230px;
+            /* display: inline-block; */
+            /* vertical-align: middle; */
+        }
+
+        .bbottom7 {
+            height: 10px;
+            width: 150px;
+            /* border: 1px solid; */
+            background: linear-gradient(to right, rgb(2, 163, 239), rgb(8, 195, 134));
+            margin-top: -74px;
+            position: absolute;
+            margin-left: 10px;
+            z-index: -1;
+            border: none;
+        }
+
+        .Section7 {
+            height: 80vh;
+            width: 100%;
+            /* border: 1px solid; */
+            background-image: url(./images/images13.jpg);
+            background-position: center;
+            background-size: cover;
+            padding: 1px;
+        }
+
+        .emdiv {
+            height: 40px;
+            width: 600px;
+            /* border: 1px solid red; */
+            margin-left: 400px;
+            border-bottom: 1px solid rgb(204, 236, 254);
+            margin-top: 30px;
+        }
+
+        .plane {
+            background: linear-gradient(rgb(2, 163, 239), rgb(8, 195, 134));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            cursor: pointer;
+            font-size: 40px;
+            margin-left: 570px;
+            margin-top: -20px;
+        }
+
+        .icondiv {
+            height: 100px;
+            width: 1300px;
+            /* border: 1px solid red; */
+            margin-left: 120px;
+            margin-top: 100px;
+        }
+
+        .name1 {
+            list-style: none;
+            display: inline;
+            font-size: 30px;
+            color: white;
+            margin: 50px;
+        }
+
+        .icondiv2 {
+            height: 100px;
+            width: 1200px;
+            /* border: 1px solid red; */
+            margin-left: 210px;
+            /* margin-top: 100px; */
+        }
+
+        .Section8 {
+            height: 100vh;
+            width: 100%;
+            /* border: 1px solid; */
+            padding: 1px;
+        }
+
+        .circleimages {
+            height: 350px;
+            width: 1400px;
+            /* border: 1px solid red; */
+            margin-left: 80px;
+            margin-top: 60px;
+        }
+
+        .bcircle1 {
+            position: relative;
+            height: 260px;
+            width: 260px;
+            border: 2px dotted rgb(2, 163, 239);
+            border-radius: 200px;
+            display: inline-block;
+            vertical-align: top;
+            /* margin: 10px; */
+        }
+
+        /* styling */
+        /* 1: inline */
+        /* <h1 style=''></h1> */
+        /* 2: internal */
+        /* those who have start in head tag */
+        /* 3: external */
+        /* it have a separate file like .html */
+
+        .hoverc {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            /* translate => it moves the div in 2d direction */
+            transform: scale(.9) translateX(-50%) translateY(-50%);
+            height: 280px;
+            width: 280px;
+            opacity: 0;
+            background: linear-gradient(to right bottom, rgba(2, 164, 239, 0.425), rgba(8, 195, 133, 0.353));
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        @keyframes circle1 {
+            0% {
+                opacity: 0;
+                transform: scale(1) translateX(-50%) translateY(-50%);
+            }
+
+            33% {
+                opacity: 1;
+                transform: scale(1) translateX(-50%) translateY(-50%);
+            }
+
+            66% {
+                opacity: 1;
+                transform: scale(1) translateX(-50%) translateY(-50%);
+            }
+
+            99% {
+                opacity: 0;
+                transform: scale(1) translateX(-50%) translateY(-50%);
+            }
+        }
+
+        .c1 {
+            height: 220px;
+            width: 220px;
+            /* border: 1px solid red; */
+            background: linear-gradient(to right bottom, rgb(2, 163, 239), rgb(8, 195, 134));
+            border-radius: 200px;
+            border: none;
+            /* display: inline-block;
+            vertical-align: top; */
+            text-align: center;
+            margin: 10% auto;
+            margin-left: 17px;
+            margin-top: 17px;
+            z-index: 2;
+
+        }
+
+        .dg {
+            font-size: 130px;
+            color: white;
+            margin-top: 40px;
+
+        }
+
+        .bcircle2 {
+            position: relative;
+            height: 260px;
+            width: 260px;
+            border: 2px dotted rgb(2, 163, 239);
+            border-radius: 200px;
+            display: inline-block;
+            vertical-align: top;
+            /* margin: 10px; */
+            margin-left: 90px;
+        }
+
+        /* space selector is selecting a child */
+
+        .bcircle1:hover .hoverc {
+            animation: circle1 3s linear infinite;
+        }
+
+        .bcircle2:hover .hoverc {
+            animation: circle1 3s linear infinite;
+        }
+
+        .bcircle3:hover .hoverc {
+            animation: circle1 3s linear infinite;
+        }
+
+        .bcircle4:hover .hoverc {
+            animation: circle1 3s linear infinite;
+        }
+
+        .bcircle3 {
+            height: 260px;
+            width: 260px;
+            border: 2px dotted rgb(2, 163, 239);
+            border-radius: 200px;
+            display: inline-block;
+            vertical-align: top;
+            /* margin: 10px; */
+            margin-left: 90px;
+            position: relative;
+        }
+
+        .bcircle4 {
+            height: 260px;
+            width: 260px;
+            border: 2px dotted rgb(2, 163, 239);
+            border-radius: 200px;
+            display: inline-block;
+            vertical-align: top;
+            /* margin: 10px; */
+            margin-left: 90px;
+            position: relative;
+        }
+
+        .t8 {
+            height: max-content;
+            width: max-content;
+            /* border: 1px solid red; */
+            margin-top: 20px;
+        }
+
+        .h8 {
+            display: inline;
+            vertical-align: top;
+            margin: 30px;
+            margin-top: 30px;
+        }
+
+        .hb {
+            margin-left: 180px;
+        }
+
+        .hc {
+            margin-left: 180px;
+        }
+
+        .hd {
+            margin-left: 120px;
+        }
+
+        .endingborder {
+            height: 70px;
+            width: 1200px;
+            /* border: 1px solid red; */
+            margin-left: 150px;
+        }
+
+        .endc {
+            height: 60px;
+            width: 360px;
+            /* border: 1px solid red; */
+            display: inline-block;
+            vertical-align: top;
+            margin: 5px;
+        }
+
+        .endc2 {
+            height: 60px;
+            width: 60px;
+            /* border: 1px solid red; */
+            display: inline-block;
+            vertical-align: top;
+            margin: 5px;
+        }
+
+        .dotb {
+            height: 40px;
+            width: 40px;
+            border: 2px dotted rgb(2, 163, 239);
+            border-radius: 30px;
+            /* transform: scale(.7) translateX(-50px) translateY(-50px); */
+            position: relative;
+        }
+
+        .sbody {
+            height: 30px;
+            width: 30px;
+            border-radius: 20px;
+            background: linear-gradient(to right bottom, rgb(2, 163, 239), rgb(8, 195, 134));
+            position: absolute;
+            top: 9%;
+            left: 9%;
+
+        }
+
+        .dotbottom {
+            border-bottom: 2px dotted rgb(2, 163, 239);
+            width: 290px;
+            margin-left: 70px;
+            margin-top: 17px;
+        }
+
+        .Section9 {
+            height: 115vh;
+            width: 100%;
+            /* border: 1px solid; */
+            background-color: rgb(239, 241, 247);
+            padding: 10px;
+        }
+
+        .Slider2 {
+            height: 550px;
+            width: 94%;
+            overflow: hidden;
+            margin: auto;
+        }
+
+        .blogp {
+            height: max-content;
+            width: 2850px;
+            margin-left: 60px;
+            /* border: 1px solid red; */
+            animation: slider 8s linear infinite;
+        }
+
+        .blog1 {
+            height: 550px;
+            width: 430px;
+            /* border: 1px solid red; */
+            display: inline-block;
+            vertical-align: top;
+            margin: 20px;
+            background-color: white;
+        }
+
+        .aa {
+            height: 250px;
+            width: 430px;
+            /* border: 1px solid; */
+            background-image: url(./images/images19.jpg);
+            background-position: center;
+            background-size: cover;
+        }
+
+        .bb {
+            height: 250px;
+            width: 430px;
+            /* border: 1px solid; */
+            background-image: url(./images/images20.jpg);
+            background-position: center;
+            background-size: cover;
+        }
+
+        .cc {
+            height: 250px;
+            width: 430px;
+            /* border: 1px solid; */
+            background-image: url(./images/images21.jpg);
+            background-position: center;
+            background-size: cover;
+        }
+
+        .dt9 {
+            height: 40px;
+            width: 430px;
+            /* border: 1px solid red; */
+            margin-top: 30px;
+
+        }
+
+        .cl {
+            color: rgb(2, 163, 239);
+            margin-left: 30px;
+            font-size: 18px;
+            display: inline;
+        }
+
+        .h9 {
+            display: inline;
+            color: rgb(95, 93, 93);
+            font-weight: normal;
+        }
+
+        .user {
+            color: rgb(2, 163, 239);
+            margin-left: 10px;
+            font-size: 17px;
+            display: inline;
+        }
+
+        .cm {
+            font-weight: normal;
+            color: rgb(2, 163, 239);
+            margin-left: 10px;
+            font-size: 18px;
+            display: inline;
+        }
+
+        .hdng9 {
+            color: rgb(58, 58, 58);
+            font-size: 25px;
+            /* border: 1px solid; */
+            width: 380px;
+            margin-top: 10px;
+            margin-left: 30px;
+        }
+
+        .p9 {
+            font-size: 17px;
+            color: rgb(58, 58, 58);
+            margin-top: 20px;
+            margin-left: 30px;
+        }
+
+        .btn9 {
+            height: 50px;
+            width: 180px;
+            border: 1px solid;
+            border-radius: 25px;
+            background: linear-gradient(to right bottom, rgb(2, 163, 239), rgb(8, 195, 134));
+            color: white;
+            margin-top: 20px;
+            margin-left: 30px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .btn9:hover {
+            background: linear-gradient(to right bottom, rgb(2, 163, 239), rgb(8, 195, 134));
+
+        }
+
+        .Section10 {
+            height: 85vh;
+            width: 100%;
+            /* border: 1px solid red; */
+            background-image: url(./images/images22.jpg);
+            background-size: cover;
+            background-position: center;
+            padding: 10px;
+        }
+
+        .textl10 {
+            height: 650px;
+            width: 500px;
+            /* border: 1px solid; */
+            background-color: white;
+            margin-top: -80px;
+            margin-left: 50px;
+            border-radius: 8px;
+            padding: 1px;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .child10 {
+            height: 550px;
+            width: 400px;
+            /* border: 1px solid red; */
+            margin-left: 50px;
+            margin-top: 50px;
+        }
+
+        .loc {
+            font-size: 130px;
+            background: linear-gradient(rgb(2, 163, 239), rgb(8, 195, 134));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .h10 {
+            font-size: 46px;
+            /* color: white; */
+            /* border: 1px solid red; */
+            height: 80px;
+            width: max-content;
+            position: relative;
+            line-height: 56px;
+            z-index: 1;
+            /* margin-left: 550px; */
+            margin-top: 20px;
+        }
+
+        .bbottom10 {
+            height: 10px;
+            width: 150px;
+            /* border: 1px solid; */
+            background: linear-gradient(to right, rgb(2, 163, 239), rgb(8, 195, 134));
+            margin-top: -20px;
+            position: absolute;
+            /* margin-left: 120px; */
+            z-index: -1;
+            border: none;
+        }
+
+        .VU {
+            height: max-content;
+            width: max-content;
+            /* border: 1px solid red; */
+
+        }
+
+        .lc {
+            font-size: 26px;
+            background: linear-gradient(rgb(2, 163, 239), rgb(8, 195, 134));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            /* border: 1px solid red; */
+            height: max-content;
+            width: max-content;
+            display: inline;
+            vertical-align: top;
+            margin-left: 20px;
+        }
+
+        .hdng10 {
+            height: max-content;
+            width: max-content;
+            display: inline;
+            vertical-align: top;
+            margin-left: 25px;
+            font-size: 19px;
+        }
+
+        .p10 {
+            font-size: 15px;
+            margin-left: 70px;
+            margin-top: 5px;
+            font-weight: normal;
+            line-height: 13px;
+        }
+
+        .p102 {
+            font-size: 15px;
+            margin-left: 70px;
+            margin-top: 5px;
+            font-weight: normal;
+            line-height: 13px;
+            cursor: pointer;
+            transition: .34s;
+        }
+
+        .p102:hover {
+            color: rgb(2, 163, 239);
+        }
+
+        .VU2 {
+            height: max-content;
+            width: max-content;
+            /* border: 1px solid red; */
+            margin-top: 40px;
+        }
+
+        .textr10 {
+            height: 480px;
+            width: 850px;
+            /* border: 1px solid red; */
+            display: inline-block;
+            vertical-align: top;
+            margin-top: 90px;
+            margin-left: 60px;
+        }
+
+        .named {
+            height: 55px;
+            width: 390px;
+            /* border: 1px solid; */
+            background-color: rgba(255, 255, 255, 0.36);
+            border-radius: 5px;
+            display: inline-block;
+            vertical-align: top;
+            margin: 15px;
+            border: none;
+            padding: 20px;
+            color: white;
+            font-size: 17px;
+        }
+
+        .phone {
+            height: 55px;
+            width: 390px;
+            /* border: 1px solid; */
+            background-color: rgba(255, 255, 255, 0.36);
+            border-radius: 5px;
+            display: inline-block;
+            vertical-align: top;
+            margin: 15px;
+            border: none;
+            padding: 20px;
+            color: white;
+            font-size: 17px;
+            margin-top: 20px;
+        }
+
+        .msgg {
+            height: 170px;
+            width: 820px;
+            background-color: rgba(255, 255, 255, 0.36);
+            border-radius: 5px;
+            display: inline-block;
+            padding: 20px;
+            color: white;
+            font-size: 17px;
+            margin-top: 20px;
+            margin-left: 15px;
+
+        }
+
+        .btn10 {
+            height: 50px;
+            width: 820px;
+            background-color: white;
+            border-radius: 5px;
+            margin-top: 26px;
+            margin-left: 15px;
+            border: none;
+            font-size: 18px;
+            font-weight: normal;
+            transition: .50s;
+            cursor: pointer;
+        }
+
+        .btn10:hover {
+            color: rgb(8, 195, 134);
+        }
+
+        .Section11 {
+            height: 70vh;
+            width: 100%;
+            /* border: 1px solid; */
+            background-image: url(./images/images23.jpg);
+            background-position: left;
+            background-size: cover;
+        }
+
+        .logodiv {
+            height: 300px;
+            width: max-content;
+            /* border: 1px solid red; */
+            margin-top: 110px;
+            margin-left: 40px;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .logo2 {
+            height: 25px;
+            width: 140px;
+            /* border: 1px solid red; */
+            background-image: url(./images/images24.png);
+            background-position: center;
+            background-size: cover;
+            /* display: inline-block;
+            vertical-align: top; */
+            /* margin-top: 100px; */
+            margin-left: 50px;
+        }
+
+        .p11 {
+            margin-top: 50px;
+            margin-left: 60px;
+            line-height: 26px;
+            color: rgb(58, 58, 58);
+        }
+
+        .ic2 {
+            height: 50px;
+            width: 200px;
+            /* border: 1px solid red; */
+            margin-left: 60px;
+            margin-top: 10px;
+        }
+
+        .icons {
+            height: 43px;
+            width: 43px;
+            border-radius: 30px;
+            background: linear-gradient(to right bottom, rgb(2, 163, 239), rgb(8, 195, 134));
+            display: inline-block;
+            vertical-align: top;
+            margin: 10px;
+            text-align: center;
+        }
+        .fa{
+            color: white;
+            font-size: 22px;
+            margin-top: 10px;
+        }
+        .eb{
+            height: 300px;
+            width: max-content;
+            /* border: 1px solid red; */
+            margin-top: 80px;
+            margin-left: 20px;
+            display: inline-block;
+            vertical-align: top;
+            margin-left: 70px;
+            
+        }
+        .h11 {
+            font-size: 22px;
+            /* color: white; */
+            /* border: 1px solid red; */
+            height: 70px;
+            width: max-content;
+            position: relative;
+            z-index: 1;
+            /* margin-left: 550px; */
+            font-weight: bold;
+            margin-top: 30px;
+            color: rgb(62, 62, 62);
+        }
+
+        .bbottom11 {
+            height: 5px;
+            width: 70px;
+            /* border: 1px solid; */
+            background: linear-gradient(to right, rgb(2, 163, 239), rgb(8, 195, 134));
+            margin-top: -10px;
+            position: absolute;
+            /* margin-left: 120px; */
+            z-index: -1;
+            border: none;
+        }
+        .pp11{
+            font-weight: normal;
+            font-size: 15px;
+            margin-top: 50px;
+        }
+        .ps11{
+            font-weight: normal;
+            margin-top: 30px;
+            font-size: 16px;
+        }
+        .navigatel{
+            list-style: none;
+            line-height: 35px;
+            height: max-content;
+            width: max-content;
+            /* border: 1px solid red; */
+            display: inline-block;
+            vertical-align: top;
+            cursor: pointer;
+        }
+        .NT{
+            color: rgb(62, 62, 62);
+
+        }
+        .NT:hover{
+            color: rgb(2, 163, 239);
+        }
+        .navigater{
+            /* font-size: 16px; */
+            height: max-content;
+            width: max-content;
+            /* border: 1px solid red; */
+            list-style: none;
+            display: inline-block;
+            vertical-align: top;
+            cursor: pointer;
+        }
+        .NN{
+            color: rgb(62, 62, 62);
+            font-weight: normal;
+            /* margin-top: -50px; */
+            margin-left: 60px;
+            line-height: 35px;
+        }
+        .NN:hover{
+            color: rgb(2, 163, 239);
+        }
+        .footer{
+            border-bottom: 1px solid rgb(227,229,234);
+            width: 100%;
+            margin-top: 20px;
+        }
+        .copyright{
+            color: rgb(62, 62, 62);
+            text-align: center;
+            margin-top: 30px;
+            font-size: 15px;
+        }
+        .hl:hover{
+            color: rgb(2, 163, 239);
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="Section1">
+        <div class="Infobar"></div>
+        <div class="toolbar">
+            <i class="fa-solid fa-envelope em"></i>
+            <h4 class="h1">info@yourwebsite.com</h4>
+            <i class="fa-solid fa-phone ph"></i>
+            <h4 class="h1">(+123) 456789</h4>
+            <i class="fa-brands fa-facebook-f fb"></i>
+            <i class="fa-brands fa-google-plus-g g"></i>
+            <i class="fa-brands fa-twitter g"></i>
+            <i class="fa-brands fa-linkedin-in g"></i>
+        </div>
+        <div class="Navbar">
+            <div class="logo"></div>
+            <ul class="Navlist">
+                <li class="n1"><a href="">HOME</a>
+                    <div class="dropdown">
+                        <h5 class="dd">Home One</h5>
+                        <h5 class="dd">Home Two</h5>
+                        <h5 class="dd">Home Three</h5>
+                    </div>
+                </li>
+                <li class="n1">ABOUT</li>
+                <li class="n1">FEATURES</li>
+                <li class="n1"> <a href="">PAGES</a>
+                    <div class="dropdown1">
+                        <div class="b1">
+                            <h5 class="dd">Software Demo</h5>
+                            <h5 class="dd">Mobile App</h5>
+                            <h5 class="dd">Team Page</h5>
+                            <h5 class="dd">Privacy Policy Page</h5>
+                        </div>
+                        <div class="b1">
+                            <h5 class="dd">Pricing Plan</h5>
+                            <h5 class="dd">Chatbot</h5>
+                            <h5 class="dd">Login</h5>
+                            <h5 class="dd">Register</h5>
+                        </div>
+                        <div class="b1">
+                            <h5 class="dd">Download</h5>
+                            <h5 class="dd">Coming Soon</h5>
+                            <h5 class="dd">404 Error</h5>
+                        </div>
+                    </div>
+                </li>
+                <li class="n1"> <a href="">SHOP</a>
+                    <div class="dropdown2">
+                        <h5 class="dd">Shop</h5>
+                        <h5 class="dd">Shop Single</h5>
+                        <h5 class="dd">Cart</h5>
+                        <h5 class="dd">Checkout</h5>
+                    </div>
+                </li>
+                <li class="n1"> <a href="">BLOG</a>
+                    <div class="dropdown3">
+                        <h5 class="dd">Blog</h5>
+                        <h5 class="dd">Blog Left Sidebar</h5>
+                        <h5 class="dd">Blog Right Sidebar</h5>
+                        <h5 class="dd">Blog Details</h5>
+                    </div>
+                </li>
+                <li class="n1">CONTACT</li>
+                <i class="fa-sharp fa-solid fa-bag-shopping sh"></i>
+                <i class="fa-solid fa-magnifying-glass sh"></i>
+            </ul>
+        </div>
+        <div class="text1">
+            <h1 class="hdng">AI & Machine <br> Learning Products <br> Creators</h1>
+            <p class="p1">Innovative machine learning products and services <br> on a trusted platform.</p>
+            <button class="btn1">LEARN MORE</button>
+            <button class="btn2">JOIN NOW</button>
+        </div>
+        <div class="img1">
+            <div class="plimg">
+                <img class="limg" src="images/images06.png" alt="">
+            </div>
+            <div class="primg">
+                <img class="rimg" src="images/images07.png" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="Section2">
+        <div class="tdiv1">
+            <div class="ablock1">
+                <i class="fa-solid fa-brain b"></i>
+                <h3 class="h2">Advanced Programming</h3>
+                <p class="p2">Find out what's working and what's not <br> Dig your data to find</p>
+            </div>
+            <div class="ablock2">
+                <i class="fa-solid fa-microchip b"></i>
+                <h3 class="h2">AI Chippest</h3>
+                <p class="p2">Find out what's working and what's not <br> Dig your data to find</p>
+            </div>
+        </div>
+        <div class="tdiv2">
+            <div class="ablock1">
+                <i class="fa-solid fa-share-nodes b"></i>
+                <h3 class="h2">Cloud AI intergration</h3>
+                <p class="p2">Find out what's working and what's not <br> Dig your data to find</p>
+            </div>
+            <div class="ablock2">
+                <i class="fa-sharp fa-solid fa-robot b"></i>
+                <h3 class="h2">Robotic Arm</h3>
+                <p class="p2">Find out what's working and what's not <br> Dig your data to find</p>
+            </div>
+        </div>
+        <div class="text2">
+            <h1 class="hdng2">Power Your Creativity With <br> Artificial Intelligence
+                <div class="bbottom"></div>
+            </h1>
+            <p class="para2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at dictum risus,
+                <br> non suscipit arcu. Quisque aliquam posuere tortor, sit amet convallis nunc
+                <br> scelerisque in. <br>
+                <br>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore eius molesti
+                <br> ae facere, natus reprehenderit eaque eum, autem ipsam. Magni, error. Tem
+                <br> pora odit laborum iure inventore possimus laboriosam qui nam. Fugit!
+            </p>
+            <button class="btn3">LEARN MORE</button>
+        </div>
+    </div>
+    <div class="Section3">
+        <div class="text3">
+            <h1 class="hdng2">We Create The Most Realistic <br> Artificial Intelligence
+                <div class="bbottom"></div>
+            </h1>
+            <p class="para2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at dictum risus, non suscipit
+                <br> arcu. Quisque aliquam posuere tortor, sit amet convallis nunc scelerisque in. <br>
+                <br>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore eius molesti ae facere,
+                <br> natus reprehenderit eaque eum, autem ipsam. Magni, error. Tem pora odit laborum iure
+                <br> inventore possimus laboriosam qui nam. Fugit!
+            </p>
+            <button class="btn3">LEARN MORE</button>
+            <div class="playicon">
+                <i class="fa-regular fa-circle-play pl"></i>
+                <div class="plh"></div>
+            </div>
+        </div>
+        <div class="divimg3"></div>
+    </div>
+    <div class="Section4">
+        <div class="obdiv">
+            <div class="oblock1 c">
+                <h1 class="digits">6000+</h1>
+                <h2 class="h4">Complete Project</h2>
+            </div>
+            <div class="oblock1 d">
+                <h1 class="digits">4000+</h1>
+                <h2 class="h4">NLP Experts</h2>
+            </div>
+            <div class="oblock1 d">
+                <h1 class="digits">3500+</h1>
+                <h2 class="h4">Satisfied Clients</h2>
+            </div>
+            <div class="oblock1 d">
+                <h1 class="digits">8000+</h1>
+                <h2 class="h4">Industries Served</h2>
+            </div>
+        </div>
+    </div>
+    <div class="Section5">
+        <div class="h5">Our Core Services
+            <div class="bbottom5"></div>
+        </div>
+        <div class="servicesd">
+            <div class="sb1">
+                <i class="fa-solid fa-vr-cardboard si"></i>
+                <h3 class="hdng5">Virtual Personal Assistants</h3>
+                <p class="p5">Capitalize on low hanging fruit to identify a ball
+                    <br> park value added activity to beta test. Override
+                    <br> the digital divide with additional
+                </p>
+            </div>
+            <div class="sb1">
+                <i class="fa-solid fa-video si"></i>
+                <h3 class="hdng5">Videos Surveillance</h3>
+                <p class="p5">Capitalize on low hanging fruit to identify a ball
+                    <br> park value added activity to beta test. Override
+                    <br> the digital divide with additional
+                </p>
+            </div>
+            <div class="sb1">
+                <i class="fa-solid fa-microchip si"></i>
+                <h3 class="hdng5">Social Media Services</h3>
+                <p class="p5">Capitalize on low hanging fruit to identify a ball
+                    <br> park value added activity to beta test. Override
+                    <br> the digital divide with additional
+                </p>
+            </div>
+            <div class="sb1">
+                <i class="fa-regular fa-circle-question si"></i>
+                <h3 class="hdng5">Online Customer Support</h3>
+                <p class="p5">Capitalize on low hanging fruit to identify a ball
+                    <br> park value added activity to beta test. Override
+                    <br> the digital divide with additional
+                </p>
+            </div>
+            <div class="sb1">
+                <i class="fa-brands fa-searchengin si"></i>
+                <h3 class="hdng5">Search Engine Result Refining</h3>
+                <p class="p5">Capitalize on low hanging fruit to identify a ball
+                    <br> park value added activity to beta test. Override
+                    <br> the digital divide with additional
+                </p>
+            </div>
+            <div class="sb1">
+                <i class="fa-solid fa-user-secret si"></i>
+                <h3 class="hdng5">Online Fraud Detection</h3>
+                <p class="p5">Capitalize on low hanging fruit to identify a ball
+                    <br> park value added activity to beta test. Override
+                    <br> the digital divide with additional
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="Section6">
+        <div class="h6">Our Latest Project
+            <div class="bbottom6"></div>
+        </div>
+        <div class="SliderMain">
+            <div class="divimg6">
+                <div class="imgs6 i1">
+                    <div class="overlay">
+                        <h3 class="vc">Vocal Avatar API</h3>
+                    </div>
+                </div>
+                <div class="imgs6 i2">
+                    <div class="overlay">
+                        <h3 class="vc">Vocal Avatar API</h3>
+                    </div>
+                </div>
+                <div class="imgs6 i3">
+                    <div class="overlay">
+                        <h3 class="vc">Vocal Avatar API</h3>
+                    </div>
+                </div>
+                <div class="imgs6 i1">
+                    <div class="overlay">
+                        <h3 class="vc">Vocal Avatar API</h3>
+                    </div>
+                </div>
+                <div class="imgs6 i2">
+                    <div class="overlay">
+                        <h3 class="vc">Vocal Avatar API</h3>
+                    </div>
+                </div>
+                <div class="imgs6 i3">
+                    <div class="overlay">
+                        <h3 class="vc">Vocal Avatar API</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="Section7">
+        <div class="whitediv">
+            <i class="fa-solid fa-envelope-open-text enicon"></i>
+            <div class="h7">Don’t Miss Our News And Updates!
+                <div class="bbottom7"></div>
+            </div>
+            <div class="emdiv">Enter You Email
+                <i class="fa-brands fa-telegram plane"></i>
+            </div>
+        </div>
+        <div class="icondiv">
+            <ul class="icname">
+                <li class="name1">Progeny</li>
+                <li class="name1">PORELLO</li>
+                <li class="name1">PRO-West</li>
+                <li class="name1">Binary Stream</li>
+                <li class="name1">PEDESTAL</li>
+            </ul>
+        </div>
+        <div class="icondiv2">
+            <ul class="icname">
+                <li class="name1">Progeny</li>
+                <li class="name1">PORELLO</li>
+                <li class="name1">PRO-West</li>
+                <li class="name1">Binary Stream</li>
+            </ul>
+        </div>
+    </div>
+    <div class="Section8">
+        <div class="h6">How We Works
+            <div class="bbottom6"></div>
+        </div>
+        <div class="circleimages">
+            <div class="bcircle1">
+                <div class="hoverc"></div>
+                <div class="c1">
+                    <i class="fa-solid fa-user-tie dg"></i>
+                </div>
+            </div>
+            <div class="bcircle2">
+                <div class="hoverc"></div>
+                <div class="c1">
+                    <i class="fa-brands fa-app-store dg"></i>
+                </div>
+            </div>
+            <div class="bcircle3">
+                <div class="hoverc"></div>
+                <div class="c1">
+                    <i class="fa-solid fa-microchip dg"></i>
+                </div>
+            </div>
+            <div class="bcircle4">
+                <div class="hoverc"></div>
+                <div class="c1">
+                    <i class="fa-solid fa-chart-simple dg"></i>
+                </div>
+            </div>
+            <div class="t8">
+                <h2 class="h8 ha">Data Generated</h2>
+                <h2 class="h8 hb">Data Stored</h2>
+                <h2 class="h8 hc">Data Processing </h2>
+                <h2 class="h8 hd">Actionable Insights</h2>
+            </div>
+        </div>
+        <div class="endingborder">
+            <div class="endc">
+                <div class="dotb">
+                    <div class="sbody"></div>
+                    <div class="dotbottom"></div>
+                </div>
+            </div>
+            <div class="endc">
+                <div class="dotb">
+                    <div class="sbody"></div>
+                    <div class="dotbottom"></div>
+                </div>
+            </div>
+            <div class="endc">
+                <div class="dotb">
+                    <div class="sbody"></div>
+                    <div class="dotbottom"></div>
+                </div>
+            </div>
+            <div class="endc2">
+                <div class="dotb">
+                    <div class="sbody"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="Section9">
+        <div class="h6">Recent Blog Post
+            <div class="bbottom6"></div>
+        </div>
+        <div class="Slider2">
+            <div class="blogp">
+                <div class="blog1">
+                    <div class="aa"></div>
+                    <div class="dt9">
+                        <i class="fa-regular fa-calendar cl"></i>
+                        <h4 class="h9">Nov 28, 2019</h4>
+                        <i class="fa-regular fa-user user"></i>
+                        <h4 class="h9">Admin</h4>
+                        <h4 class="cm">10</h4>
+                        <h4 class="h9">Comments</h4>
+
+                    </div>
+                    <h2 class="hdng9">Man in Red Plaid Shirt Talking on Phone Terrace</h2>
+                    <p class="p9">The Tutorials covers examples of identification <br> and Rew Garfield and verifies if
+                        a picture</p>
+                    <button class="btn9">READ MORE</button>
+                </div>
+                <div class="blog1">
+                    <div class="bb"></div>
+                    <div class="dt9">
+                        <i class="fa-regular fa-calendar cl"></i>
+                        <h4 class="h9">Nov 28, 2019</h4>
+                        <i class="fa-regular fa-user user"></i>
+                        <h4 class="h9">Admin</h4>
+                        <h4 class="cm">10</h4>
+                        <h4 class="h9">Comments</h4>
+
+                    </div>
+                    <h2 class="hdng9">Man in Red Plaid Shirt Talking on Phone Terrace</h2>
+                    <p class="p9">The Tutorials covers examples of identification <br> and Rew Garfield and verifies if
+                        a picture</p>
+                    <button class="btn9">READ MORE</button>
+                </div>
+                <div class="blog1">
+                    <div class="aa"></div>
+                    <div class="dt9">
+                        <i class="fa-regular fa-calendar cl"></i>
+                        <h4 class="h9">Nov 28, 2019</h4>
+                        <i class="fa-regular fa-user user"></i>
+                        <h4 class="h9">Admin</h4>
+                        <h4 class="cm">10</h4>
+                        <h4 class="h9">Comments</h4>
+
+                    </div>
+                    <h2 class="hdng9">Man in Red Plaid Shirt Talking on Phone Terrace</h2>
+                    <p class="p9">The Tutorials covers examples of identification <br> and Rew Garfield and verifies if
+                        a picture</p>
+                    <button class="btn9">READ MORE</button>
+                </div>
+                <div class="blog1">
+                    <div class="cc"></div>
+                    <div class="dt9">
+                        <i class="fa-regular fa-calendar cl"></i>
+                        <h4 class="h9">Nov 28, 2019</h4>
+                        <i class="fa-regular fa-user user"></i>
+                        <h4 class="h9">Admin</h4>
+                        <h4 class="cm">10</h4>
+                        <h4 class="h9">Comments</h4>
+
+                    </div>
+                    <h2 class="hdng9">Man in Red Plaid Shirt Talking on Phone Terrace</h2>
+                    <p class="p9">The Tutorials covers examples of identification <br> and Rew Garfield and verifies if
+                        a picture</p>
+                    <button class="btn9">READ MORE</button>
+                </div>
+                <div class="blog1">
+                    <div class="aa"></div>
+                    <div class="dt9">
+                        <i class="fa-regular fa-calendar cl"></i>
+                        <h4 class="h9">Nov 28, 2019</h4>
+                        <i class="fa-regular fa-user user"></i>
+                        <h4 class="h9">Admin</h4>
+                        <h4 class="cm">10</h4>
+                        <h4 class="h9">Comments</h4>
+
+                    </div>
+                    <h2 class="hdng9">Man in Red Plaid Shirt Talking on Phone Terrace</h2>
+                    <p class="p9">The Tutorials covers examples of identification <br> and Rew Garfield and verifies if
+                        a picture</p>
+                    <button class="btn9">READ MORE</button>
+                </div>
+                <div class="blog1">
+                    <div class="bb"></div>
+                    <div class="dt9">
+                        <i class="fa-regular fa-calendar cl"></i>
+                        <h4 class="h9">Nov 28, 2019</h4>
+                        <i class="fa-regular fa-user user"></i>
+                        <h4 class="h9">Admin</h4>
+                        <h4 class="cm">10</h4>
+                        <h4 class="h9">Comments</h4>
+
+                    </div>
+                    <h2 class="hdng9">Man in Red Plaid Shirt Talking on Phone Terrace</h2>
+                    <p class="p9">The Tutorials covers examples of identification <br> and Rew Garfield and verifies if
+                        a picture</p>
+                    <button class="btn9">READ MORE</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="Section10">
+        <div class="textl10">
+            <div class="child10">
+                <i class="fa-solid fa-map-location-dot loc"></i>
+                <div class="h10">Contact With Us
+                    <div class="bbottom10"></div>
+                </div>
+                <div class=VU>
+                    <i class="fa-solid fa-location-dot lc"></i>
+                    <h4 class="hdng10">Visit Us</h4>
+                    <h4 class="p10">530 Old BUffalo Street <br>
+                        <br>
+                        Northwest #205, New York - 3087
+                    </h4>
+                </div>
+                <div class=VU2>
+                    <i class="fa-solid fa-mobile-screen-button lc"></i>
+                    <h4 class="hdng10">Call Us</h4>
+                    <h4 class="p102">+1 (123) -456-7890 <br>
+                        <br>
+                        +1 (123) -456-7890
+                    </h4>
+                </div>
+                <div class=VU2>
+                    <i class="fa-regular fa-envelope-open lc"></i>
+                    <h4 class="hdng10">Email Us</h4>
+                    <h4 class="p102">infoname@gmail.com <br>
+                        <br>
+                        www.yourname.com
+                    </h4>
+                </div>
+            </div>
+        </div>
+        <div class="textr10">
+            <div class="named">Name</div>
+            <div class="named">E-Mail</div>
+            <div class="phone">Phone Number</div>
+            <div class="phone">Subject</div>
+            <div class="msgg">Your Message Here</div>
+            <button class="btn10">SUBMIT NOW !</button>
+        </div>
+    </div>
+    <div class="Section11">
+        <div class="logodiv">
+            <div class="logo2"></div>
+            <p class="p11">Lorem ipsum dolor sit amet, conse turini <br> adipiscing elit, sed do eiusmod tempor <br> in
+                cididunt ut labore.</p>
+            <div class="ic2">
+                <div class="icons">
+                    <i class="fa-brands fa-facebook-f fa"></i>
+                </div>
+                <div class="icons">
+                    <i class="fa-brands fa-instagram fa"></i>
+                </div>
+                <div class="icons">
+                    <i class="fa-brands fa-twitter fa"></i>
+                </div>
+            </div>
+        </div>
+        <div class="eb">
+            <div class="h11">WORK HOURS
+                <div class="bbottom11"></div>
+                <p class="pp11">10.00 AM - 6.00 PM , Monday - Saturday</p>
+                <p class="ps11">Our Support and Sales team is available <br> 24 * 7 to answer your queries</p>
+            </div>
+        </div>
+        <div class="eb">
+            <div class="h11">NAVIGATE
+                <div class="bbottom11"></div>
+            </div>
+            <ul class="navigatel">
+                <li class="NT">About Us</li>
+                <li class="NT">Features</li>
+                <li class="NT">Mobile App</li>
+                <li class="NT">Software Demo</li>
+                <li class="NT">Software Download</li>
+            </ul>
+           <div class="navigater">
+            <li class="NN">Blog</li>
+            <li class="NN">Team</li>
+            <li class="NN">ChatBot</li>
+           </div>
+           
+        </div>
+        <div class="eb">
+            <div class="h11">PRIVACY & TOS
+                <div class="bbottom11"></div>
+            </div>
+            <ul class="navigatel">
+                <li class="NT">Privacy</li>
+                <li class="NT">Contact</li>
+                <li class="NT">Login</li>
+                <li class="NT">Register</li>
+            </ul>
+        </div>
+        <div class="footer"></div>
+        <p class="copyright">© Copyrights 2019 <span class="hl">AuburnForest</span></p>
+    </div>
+
+
+</body>
+
+</html>

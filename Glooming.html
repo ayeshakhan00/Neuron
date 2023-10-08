@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .MainGoal{
+            height: 200px;
+            width: 200px;
+            border-radius: 50%;
+            position: relative;
+            border: 1px dotted;
+        }
+        .Goal{
+            height: 180px;
+            width: 180px;
+            border-radius: 50%;
+            margin: 10px 10px;
+            position: absolute;
+            background-color: black;
+            z-index: 1;
+        }
+        .Goal1{
+            height: 180px;
+            width: 180px;
+            border-radius: 50%;
+            margin: 10px 10px;
+            position: absolute;
+        }
+
+        .MainGoal:hover .Goal1{
+            animation: Gloom 1s linear infinite;
+            background:linear-gradient(red,yellow,green);
+        }
+        
+        @keyframes Gloom{
+            from{
+                transform: scale(1);
+                opacity: 1;
+            }
+            to{
+                transform: scale(1.4);
+                opacity: 0;
+            }
+        }
+
+    </style>
+
+
+</head>
+<body>
+    
+    <div class="MainGoal">
+        <div class="Goal"></div>
+        <div class="Goal1"></div>
+    </div>
+
+</body>
+</html>
